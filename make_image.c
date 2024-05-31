@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 14:54:03 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/29 14:02:34 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/05/31 18:35:04 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	load_moha_image(t_game *game)
 			&r);
 	game->texture[2] = mlx_xpm_file_to_image(game->mlx, "xpm/naruto_exit.xpm",
 			&r, &r);
+	game->texture[4] = mlx_xpm_file_to_image(game->mlx,
+			"xpm/sushis/monster1.xpm", &r, &r);
 }
 
 void	load_texture(t_game *game)
@@ -58,6 +60,6 @@ void	make_image(t_game *game)
 		|| !game->mohaimage[3] || !game->texture[1] || !game->texture[3]
 		|| !game->texture[2] || !game->texture[10] || !game->texture[11]
 		|| !game->texture[12] || !game->texture[13] || !game->texture[14]
-		|| !game->texture[15])
+		|| !game->texture[15] || !game->texture[4])
 		destroyimages(game, 1);
 }

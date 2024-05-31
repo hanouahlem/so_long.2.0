@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:17:43 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/30 20:20:21 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/05/31 20:46:44 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ void	destroyimages(t_game *game, int error)
 		if (game->texture[i + 10])
 			mlx_destroy_image(game->mlx, game->texture[i + 10]);
 	i = 0;
-	while (++i < 4)
+	while (++i < 5)
 		if (game->texture[i])
 			mlx_destroy_image(game->mlx, game->texture[i]);
 	if (error)
-		ft_printf("Error\nInvalive image!\n");
+		ft_printf("Error\nInvalid image!\n");
 	mlx_clear_window(game->mlx, game->win);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
@@ -83,13 +83,15 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		game.map = stock_map(&game, av[1]);
+		if (!game.map)
+			return (1);
 		if (check_map_all(&game, av[1]) == 0)
 			return (free_map(game.map), 0);
 		if (init_game(&game))
 			return (1);
 		make_image(&game);
 		start_game(&game);
-		mlx_hook(game.win,KeyPress, KeyPressMask, &touch_key, &game);
+		mlx_hook(game.win, KeyPress, KeyPressMask, &touch_key, &game);
 		mlx_hook(game.win, 17, 0, close_window, game.mlx);
 		mlx_loop(game.mlx);
 		destroyimages(&game, 0);

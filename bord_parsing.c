@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:11:42 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/30 20:20:41 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/05/31 18:33:57 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ int	check_map_all(t_game *game, char *str)
 	if (check_first_and_last_line(game) == 0)
 		return (0);
 	if (check_map_rectangle(game) == 0)
-		return (0);	
+		return (0);
 	if (check_border_map(game) == 0)
 		return (0);
 	if (check_interior(game) == 0)
 		return (0);
 	posplayer(game);
 	if (map_dup(game) == 0)
-		return(0);	
+		return (0);
 	else
 		return (1);
 }

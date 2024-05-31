@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:33:05 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/30 21:30:32 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/05/31 22:35:46 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,14 @@ int	map_dup(t_game *game)
 
 int	flood_fill(int x, int y, char **map)
 {
-	if (map[x][y] == '1' || map[x][y] == 'A')
-		return(0);
+	if (map[x][y] == '1' || map[x][y] == 'A' || map[x][y] == 'E')
+	{
+		map[x][y] = 'A';
+		return (0);
+	}
 	map[x][y] = 'A';
-	if (flood_fill(x, y - 1, map) || flood_fill(x, y + 1, map)
-		|| flood_fill(x - 1, y, map) || flood_fill(x + 1, y, map))
+	if (flood_fill(x, y - 1, map) || flood_fill(x, y + 1, map) || flood_fill(x
+			- 1, y, map) || flood_fill(x + 1, y, map))
 		return (1);
 	return (0);
 }

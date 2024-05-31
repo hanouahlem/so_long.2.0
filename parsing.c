@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:33:03 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/26 12:16:49 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/05/31 20:31:32 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int	check_map_rectangle(t_game *game)
 {
 	int	i;
-	int	j;
 	int	nb_char;
 
 	i = 0;
-	j = 0;
 	nb_char = ft_so_strlen(game->map[i]);
 	while (game->map[i])
 	{
@@ -43,7 +41,8 @@ int	check_line_content(char *line, int *count_exit, int *count_playeur,
 	while (line[i] != '\0' && line[i] != '\n')
 	{
 		c = line[i];
-		if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E')
+		if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E'
+			&& c != 'M')
 		{
 			ft_printf("Error\nInvalid character in the map\n");
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:17:48 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/30 20:20:54 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/05/31 20:58:44 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 # include "mlx/mlx.h"
 # include "mlx/mlx_int.h"
 # include "printf/ft_printf.h"
+# include "Colors.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <stdio.h>
+# include <stdbool.h>
 # include <stdlib.h>
 
 enum				e_DIR
@@ -80,6 +82,7 @@ void				load_texture(t_game *game);
 int					flood_fill(int x, int y, char **map);
 int					map_dup(t_game *game);
 int					check_flood_fill(char **map_dup);
-void	posplayer(t_game *game);
+void				posplayer(t_game *game);
+void				game_over(t_game *game);
 
 #endif
