@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:32:21 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/31 18:34:43 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/06/03 21:01:35 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	ft_so_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0' && str[i] != '\n')
-	{
+	if (!str)
+		return (0);
+	while (str[i] && str[i] != '\n')
 		i++;
-	}
 	return (i);
 }
 
-static int	ft_len(int n)
+int	ft_len(int n)
 {
 	long int	nbr;
 	int			i;

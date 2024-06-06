@@ -1,54 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 13:51:09 by ahbey             #+#    #+#             */
-/*   Updated: 2024/06/03 15:29:49 by ahbey            ###   ########.fr       */
+/*   Created: 2024/05/17 16:59:27 by ahbey             #+#    #+#             */
+/*   Updated: 2024/06/03 15:16:45 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
-int	ft_strlen(char *str)
+int	free_map(char **str)
 {
 	int	i;
 
-	if (!str)
-		return (-1);
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
+		free(str[i]);
 		i++;
 	}
-	return (i);
+	free(str);
+	return (0);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
-	int		j;
-	char	*str;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	if (s1 == NULL)
+	while (i < n)
 	{
-		s1 = malloc(1);
-		if (s1 == NULL)
-			return (NULL);
-		s1[i] = '\0';
+		((unsigned char *)s)[i] = 0;
+		i++;
 	}
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!str)
+}
+
+void	*ft_calloc(size_t nmemb, size_t n)
+{
+	char	*s;
+
+	s = malloc(n * nmemb);
+	if (!s)
 		return (NULL);
-	while (s1[i])
-		str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[j++] = s2[i++];
-	str[j] = '\0';
-	return (free(s1), str);
+	ft_bzero(s, nmemb * n);
+	return (s);
 }

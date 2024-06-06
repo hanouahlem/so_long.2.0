@@ -6,13 +6,14 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:17:48 by ahbey             #+#    #+#             */
-/*   Updated: 2024/06/03 22:17:52 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/06/03 22:10:11 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "Colors.h"
 # include "gnl/get_next_line.h"
 # include "mlx/mlx.h"
 # include "mlx/mlx_int.h"
@@ -22,6 +23,8 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
+
+# define NARUTO "bonussrcs/naruto.mp4"
 
 enum				e_DIR
 {

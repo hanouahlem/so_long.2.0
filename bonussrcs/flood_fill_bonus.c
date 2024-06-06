@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*   flood_fill_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:33:05 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/31 22:35:46 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/06/03 21:57:04 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,18 @@ int	map_dup(t_game *game)
 	char	**map_dup;
 
 	i = 0;
-	map_dup = calloc(sizeof(char *), (game->map_height + 1));
+	map_dup = ft_calloc(sizeof(char *), (game->map_height + 1));
 	if (!map_dup)
 		return (0);
 	while (i < game->map_height)
 	{
 		map_dup[i] = ft_strdup(game->map[i]);
-		if (!map_dup)
+		if (!map_dup[i])
 			return (free_map(map_dup), 0);
 		i++;
 	}
 	flood_fill(game->playery, game->playerx, map_dup);
 	i = 0;
-	while (map_dup[i])
-		printf("%s", map_dup[i++]);
-	printf("\n");
 	if (check_flood_fill(map_dup) == 0)
 	{
 		return (free_map(map_dup), 0);
@@ -42,7 +39,8 @@ int	map_dup(t_game *game)
 
 int	flood_fill(int x, int y, char **map)
 {
-	if (map[x][y] == '1' || map[x][y] == 'A' || map[x][y] == 'E')
+	if (map[x][y] == '1' || map[x][y] == 'A' || map[x][y] == 'E'
+		|| map[x][y] == 'M')
 	{
 		map[x][y] = 'A';
 		return (0);

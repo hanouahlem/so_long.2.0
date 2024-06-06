@@ -6,7 +6,7 @@
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:56:55 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/31 18:17:13 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/06/01 06:27:14 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ void	give_rols(t_game *game, int i, int j)
 				% 6) + 10], j * 60, i * 60);
 	if (game->map[i][j] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->texture[2], j * 60,
-			i * 60);
-	if (game->map[i][j] == 'M')
-		mlx_put_image_to_window(game->mlx, game->win, game->texture[4], j * 60,
 			i * 60);
 }
 

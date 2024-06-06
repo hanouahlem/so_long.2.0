@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahbey <ahbey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:33:03 by ahbey             #+#    #+#             */
-/*   Updated: 2024/05/31 20:31:32 by ahbey            ###   ########.fr       */
+/*   Updated: 2024/06/03 21:56:08 by ahbey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 int	check_map_rectangle(t_game *game)
 {
 	int	i;
-	int	nb_char;
 
 	i = 0;
-	nb_char = ft_so_strlen(game->map[i]);
 	while (game->map[i])
 	{
-		if (ft_so_strlen(game->map[i]) != nb_char)
+		if (ft_so_strlen(game->map[i]) != game->map_width)
 		{
 			ft_printf("Error\nMap is not rectangle\n");
 			return (0);
